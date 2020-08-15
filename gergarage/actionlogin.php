@@ -3,23 +3,21 @@
 #Connect the database 
 include "connect.php";
 session_start();
-$email= $_POST['email'];
+$email= $_GET['email'];
 $_SESSION['email'] = $email;
 
-$password= $_POST['password'];
+$password= $_GET['password'];
 
 #Receive Posted Email
-$sql = mysqli_query($conn, "SELECT * FROM register WHERE email = '{$email}'") or print mysql_error();
+$sql = mysqli_query($conn, "SELECT * FROM register WHERE email = '{$email}' and password='{$password}'") or print mysql_error();
 
 #If the return is greater than zero, it says that one already exists.
 
 if(mysqli_num_rows($sql)>0) {
-    header("Location: formbook.php");
+    echo "successfull";
 } else{ 
-    echo json_encode(array('email' => 'Invalid email.' )); 
+    echo 'Email or Password is Wrong.'; 
 }
 $conn->close();
 ?>
-
-}
 

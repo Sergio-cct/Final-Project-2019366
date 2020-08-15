@@ -20,6 +20,18 @@
 
 </head>    
 <body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style = "margin-top:556px !important;">
+        <span class="close">&times;</span>
+        <p id="error_msg"></p>
+    </div>
+
+    </div>
+
+
     <div id="wrap">         
     <header>
         <div class="header">
@@ -55,16 +67,77 @@
         <div class= "container">
      
             <h3>ADMIN ACCESS &#x1f511</32>  <br><br>  
-            <form action="actionadmin.php" method="post">
             <div><br>
-            <input type="user" name="user" class="form-control" placeholder="USER" required>
+            <input type="user" name="user" id="user" class="form-control" placeholder="USER" required>
             </div> <br> 
-            <input type="password" name="password" class="form-control" placeholder="PASSWORD*" required>
-            </div>  <br> <br><br>
+            <input type="password" name="password" id="password" class="form-control" placeholder="PASSWORD*" required>
+            </div>  <br> 
             <div>
-            <input type="submit" class="form-control" value="ACCESS"> <br><br>
+                <center>
+            <button onclick="check_login()" style= "padding: 3px;height: 29px;"> ACCESS </buttton> <br><br>
+</center>
             </div>
             </form>
+            <script>
+        function check_login(){
+            var user = $('#user').val();
+            var password = $('#password').val();
+            if(user=='')
+            {
+                $('#user').focus();
+                $("#user").attr("placeholder", "Username is Required.");
+                return;
+            } 
+            if(password=='')
+            {
+                $('#password').focus();
+                $("#password").attr("placeholder", "password is Required.");
+                return;
+            } 
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              var modal = document.getElementById('myModal');
+              console.log(this.responseText.localeCompare("successfull"));
+              if ( this.responseText.trim().localeCompare("successfull") == 0 ){
+                  window.location.href = 'adminaccess.php';
+                  return;
+              }
+              document.getElementById("error_msg").innerHTML = this.responseText;
+              modal.style.display = 'block';
+              setTimeout(function(){ 
+                modal.style.display = 'none';
+                }, 2000);
+            }
+            };
+            xmlhttp.open('GET','actionadmin.php?user='+user+'&password='+password,true);
+            xmlhttp.send();
+        }
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal
+            btn.onclick = function() {
+            modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            }
+        </script> 
         </div>
  
         </div>

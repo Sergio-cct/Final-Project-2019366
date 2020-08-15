@@ -1,3 +1,13 @@
+
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href ="adminaccess.php"> return </a>
+    <div class="container">
+        <br/><br/><br/>
 <?php
 
 include "connect.php";
@@ -19,7 +29,7 @@ $sql = "INSERT INTO invoice (id_booking, customername, date, time, vehicletype, 
 ('$booking_id','$costumername','$date', '$time', '$vehicletype','$maker', '$license', '$engine', '$price_of_service', '$extras','$total', '$comment')";
 //echo $sql;
 if ($conn->query($sql) === TRUE) {
-    
+    echo "Invoice ID.         ".$conn -> insert_id."<br/><br/>";
     echo "CUSTOMER:           ".$_POST['customername_val']."<br/><br/>";
     echo "Vehicle:            ".$vehicletype."<br/><br/>";
     echo "Licence:            ".$license."<br/>";
@@ -34,9 +44,10 @@ if ($conn->query($sql) === TRUE) {
     //header("Location: pdffile.php");
 }
 
-$conn->close();
 //header("Location: pdffile.php");
 
 
 ?>
-
+    </div>
+</body>
+</html>

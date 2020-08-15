@@ -68,6 +68,10 @@
                 <?php 
 
                  include "connect.php";
+                 if(isset($_GET['booking_id']))
+                 {
+
+                 }
                 $sql_bookingform = "SELECT `id-book` FROM bookingform WHERE book_status = 'Fixed / Completed'";
 
                 $result_bookingform = mysqli_query($conn,$sql_bookingform);
@@ -117,6 +121,16 @@
 		<div>
         <form action="actioninvoice.php" method="post" >
             <?php if(isset($_GET['booking_id'])){
+
+                    $sql_invoice = "SELECT `id_booking` FROM `invoice` where `id_booking` = ".$_GET['booking_id'];
+                    $result = mysqli_query($conn,$sql_invoice);
+                    $rows_num = mysqli_num_rows($result);
+                    echo $rows_num;
+                    if($rows_num != 0)
+                    {
+                        header("Location:adminaccess.php");
+                        return;
+                    }
                     $sql = "SELECT * FROM bookingform WHERE `id-book` = ".$_GET['booking_id'];
                     $result = mysqli_query($conn,$sql);
                     $row = mysqli_fetch_array($result);

@@ -12,9 +12,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    
 </head>    
 <body>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style = "margin-top:556px !important;">
+        <span class="close">&times;</span>
+        <p id="error_msg"></p>
+    </div>
+
+    </div>
+
+
     <div id="wrap">         
     <header>
         <div class="header">
@@ -69,19 +82,80 @@
                     </div>
             </div>
 
-        <div class="container">                                  
+        <div class="container">             
+                                 
             <h4>Already Registrered?</h4>
-            <form action="actionlogin.php" method="post">
                 <div>
-                    <input name="email" class="form-control" placeholder="Email" required>
+                    <input name="email" id="email" class="form-control" placeholder="Email" value="" required>
                 </div> <br>
                 <div>
-                <input name="password" class="form-control" type="password" placeholder="" required>
+                <input name="password" id="password" class="form-control" type="password" placeholder="" value="" required>
                 </div><br>
-                <input type="submit" value="LOG IN"> <br> <br> <br>
-            </form>
+                <button onclick="check_login()">LOG IN</button> <br> <br> <br>
+        
         </div>                    
-                
+        <script>
+        function check_login(){
+            var email = $('#email').val();
+            var password = $('#password').val();
+            if(email=='')
+            {
+                $('#email').focus();
+                $("#email").attr("placeholder", "Email is Required.");
+                return;
+            } 
+            if(password=='')
+            {
+                $('#password').focus();
+                $("#password").attr("placeholder", "password is Required.");
+                return;
+            } 
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              var modal = document.getElementById('myModal');
+              console.log(this.responseText.localeCompare("successfull"));
+              if ( this.responseText.trim().localeCompare("successfull") == 0 ){
+                  window.location.href = 'formbook.php';
+                  return;
+              }
+              document.getElementById("error_msg").innerHTML = this.responseText;
+              modal.style.display = 'block';
+              setTimeout(function(){ 
+                modal.style.display = 'none';
+                }, 2000);
+            }
+            };
+            var email = $('#email').val();
+            var password = $('#password').val();
+            xmlhttp.open('GET','actionlogin.php?email='+email+'&password='+password,true);
+            xmlhttp.send();
+        }
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal
+            btn.onclick = function() {
+            modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            }
+        </script> 
             
             <h4 align=center > <strong>Don't have an account yet?</strong> </h4><br>
             <p> <a href="signup.php"  align=center class="form-control">SIGN UP</a> </p> <br>

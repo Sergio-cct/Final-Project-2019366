@@ -16,7 +16,7 @@
      </style>
    </head>
    <body>
-
+       
      <?php
        $q = $_GET['q'];
 
@@ -91,7 +91,11 @@
               
             xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-              alert(this.responseText);
+              var modal = document.getElementById('myModal');
+              modal.style.display = 'block';
+              setTimeout(function(){ 
+                modal.style.display = 'none';
+                }, 2000);
             }
             };
             // var status_val = document.getElementById('status');
