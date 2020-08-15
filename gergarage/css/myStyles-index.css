@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+/* Starting my CSS here */
+
+body{ 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+}
+#wrap {
+    width: auto;
+    margin: auto;
+    background-color:white;
+    padding: auto;    
+}
+.header {
+    
+    padding-top: : 80px;
+    padding-bottom: 80px; 
+    text-align: center;
+    color: white;
+    background-image: url(../img/background1.jpg);
+    background-repeat: repeat;    
+    margin: auto;
+    background-size: cover;
+}
+
+.header nav {
+
+    background-color: white;
+    text-align: left;
+   
+ }   
+
+.header img{
+    margin-top: 100px;
+         
+}
+.header h1 {
+    color: #dd9c12;
+    font-size: 50px;
+    letter-spacing: 1px;
+}
+
+.header p {
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: white;
+    opacity: .5;
+
+}
+.topnav {
+   
+    list-style-type: none;    
+    margin: auto;
+    padding-top: 10px;
+    overflow: hidden;
+    background-color: #4d4d4d;
+    position: fixed;
+    width: 100%;
+    
+}
+  
+.topnav li {
+    display: inline-block;
+}
+.topnav li a {
+    color: #dd9c12;
+    font-size: 18px;
+    margin-right: 15px;
+    text-decoration: none;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+ 
+  
+}
+.topnav li a:hover {
+    background-color: #4d4d4d;
+    color: white;
+    
+}
+
+.buttoncont {
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: -25px;
+
+}
+
+.buttoncont a {
+    text-decoration: none;
+    padding: 10px;
+
+}
+
+.container {
+
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 60px;
+            
+
+}
+.row {
+
+    float: left;
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 70px;
+    display: table;
+
+}
+
+.column {
+
+    float: left;
+    width: 40%;
+    padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+

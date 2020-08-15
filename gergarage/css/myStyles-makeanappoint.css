@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+/* Starting my CSS here */
+
+body{ 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+}
+#wrap {
+    width: auto;
+    margin: auto;
+    background-color:white;
+    padding: auto;    
+}
+.header {
+    
+    padding-top: : 80px;
+    padding-bottom: 80px; 
+    text-align: center;
+    color: white;
+    margin: auto;
+    background-size: cover;
+}
+
+.header nav {
+
+    background-color: white;
+    text-align: left;     
+
+ }   
+
+.header img{
+    margin-top: 100px;
+         
+}
+.header h1 {
+    color: #dd9c12;
+    font-size: 50px;
+    letter-spacing: 1px;
+}
+
+.header p {
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: white;
+    opacity: .5;
+
+}
+.topnav {
+   
+    list-style-type: none;    
+    margin: auto;
+    padding-top: 10px;
+    overflow: hidden;
+    background-color: #4d4d4d;
+    position: fixed;
+    width: 100%;
+      
+    
+}
+  
+.topnav li {
+    display: inline-block;
+}
+.topnav li a {
+    color: #dd9c12;
+    font-size: 18px;
+    margin-right: 15px;
+    text-decoration: none;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+ 
+  
+}
+.topnav li a:hover {
+    background-color: #4d4d4d;
+    color: white;
+    
+}
+
+.buttoncont {
+    box-sizing: border-box;
+    text-align: right;
+    margin-top: -25px;
+    }
+
+.buttoncont a {
+    text-decoration: none;
+    padding: 10px;
+    }
+
+.navpag {
+
+    background-image: url(../img/navpag3.jpg);
+    background-position:0;
+    height: 220px;
+    background-size: cover;
+    margin-top: -50px;
+    
+}
+
+.navpag h1 {
+    
+text-align: center;
+padding-top: 90px;
+color:  #dd9c12;
+font-size: 40px;
+
+}
+
+.container {
+padding-left: 150px;
+padding-right: 150px;
+padding-top: 60px;
+
+}
+
+.calen img {
+
+  float: left;
+  padding: 40px;
+  margin-bottom: 60px;
+  margin-top: 60px;
+      
+}
+
+.info1 p {
+
+ text-align: justify;
+ font-size: 20px;
+ padding-top: 30px;
+}
+
+.info2 {
+
+ font-size: 17px;
+}
+    
+
+
+
